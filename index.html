@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TurntableRPM Privacy Policy</title>
+<style>
+/* ---- design plan ----
+   layout: single-column document on a quiet page, a thin brand rule and the
+   turntable-dial mark standing in for a masthead, language toggle top-right
+   color:  --bg,--surface,--fg,--muted,--accent,--rule (brand gold accent on navy/cream)
+   type:   display/label face "Fraunces" (serif, a little character, used only for
+           H1/H2), body + UI face "Inter" for everything else, tabular numerals
+           for the effective-date line
+*/
+:root{
+  --bg:#f1f3f8; --surface:#ffffff; --surface-2:#f6f2e9;
+  --fg:#17202b; --muted:#5b6675; --accent:#b5862a; --rule:#e4e1d6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a2b; --surface:#16263b; --surface-2:#1b2d45;
+    --fg:#eaf0f7; --muted:#a7b4c4; --accent:#e8b64b; --rule:#27344a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a2b; --surface:#16263b; --surface-2:#1b2d45;
+  --fg:#eaf0f7; --muted:#a7b4c4; --accent:#e8b64b; --rule:#27344a;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{ height:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+h1,h2{ font-family:"Fraunces","Georgia",serif; font-weight:600; text-wrap:balance; }
+.wrap{ max-width:720px; margin:0 auto; padding-block:48px 80px; }
+
+header.masthead{
+  display:flex; align-items:center; gap:14px; justify-content:space-between;
+  margin-bottom:28px; flex-wrap:wrap; gap-row:12px;
+}
+.brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+.brand svg{ flex:none; }
+.brand .name{ font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem; }
+.brand .tag{ color:var(--muted); font-size:.85rem; }
+
+.langtoggle{
+  display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden;
+  font-size:.82rem;
+}
+.langtoggle button{
+  appearance:none; border:0; background:transparent; color:var(--muted);
+  padding:7px 16px; cursor:pointer; font:inherit; font-weight:600;
+}
+.langtoggle button[aria-pressed="true"]{ background:var(--accent); color:var(--bg); }
+.langtoggle button:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+
+.rule{ height:2px; width:64px; background:var(--accent); border-radius:2px; margin:0 0 20px; }
+
+h1{ font-size:clamp(1.7rem,4vw,2.3rem); margin:0 0 6px; }
+.dateline{
+  color:var(--muted); font-size:.92rem; font-variant-numeric:tabular-nums;
+  margin:0 0 36px;
+}
+
+section{ margin-bottom:34px; }
+h2{ font-size:1.2rem; margin:0 0 12px; }
+p{ line-height:1.65; margin:0 0 14px; color:var(--fg); }
+p.lead{ font-size:1.05rem; color:var(--muted); }
+ul{ margin:0 0 14px; padding-left:1.2em; line-height:1.65; }
+li{ margin-bottom:6px; }
+strong{ font-weight:650; }
+
+.card{
+  background:var(--surface); border:1px solid var(--rule); border-radius:14px;
+  padding:22px 24px; margin:0 0 14px;
+}
+.card.tint{ background:var(--surface-2); }
+.pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0; }
+.pill{
+  font-size:.78rem; font-weight:600; letter-spacing:.02em; color:var(--muted);
+  background:var(--surface-2); border:1px solid var(--rule); border-radius:999px;
+  padding:5px 12px;
+}
+
+a{ color:var(--accent); }
+.contact{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:14px 18px; margin-top:8px;
+}
+.contact code{
+  font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.92rem;
+  background:var(--surface-2); padding:4px 8px; border-radius:6px;
+}
+.copybtn{
+  appearance:none; border:1px solid var(--rule); background:var(--surface-2);
+  color:var(--fg); border-radius:8px; padding:6px 12px; font:inherit;
+  font-size:.82rem; font-weight:600; cursor:pointer;
+}
+.copybtn:hover{ border-color:var(--accent); }
+
+footer{
+  margin-top:48px; padding-top:20px; border-top:1px solid var(--rule);
+  color:var(--muted); font-size:.82rem; line-height:1.6;
+}
+
+[hidden]{ display:none !important; }
+@media (max-width:480px){
+  .wrap{ padding-block:32px 60px; }
+  header.masthead{ align-items:flex-start; }
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;650&display=swap">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 108 108" role="img" aria-label="TurntableRPM mark">
+        <rect width="108" height="108" rx="24" fill="#17202b"/>
+        <circle cx="54" cy="54" r="33" fill="#2a2820"/>
+        <circle cx="54" cy="54" r="24" fill="none" stroke="#3b382c" stroke-width="1.1"/>
+        <circle cx="54" cy="54" r="17" fill="none" stroke="#3b382c" stroke-width="1.1"/>
+        <circle cx="54" cy="54" r="8" fill="#e8a33d"/>
+        <circle cx="54" cy="54" r="1.6" fill="#14130f"/>
+        <line x1="83" y1="27" x2="58" y2="51" stroke="#e8a33d" stroke-width="3.4" stroke-linecap="round"/>
+        <circle cx="86" cy="24" r="4.2" fill="#e8a33d"/>
+      </svg>
+      <div>
+        <div class="name">TurntableRPM</div>
+        <div class="tag" data-t="tag">Privacy Policy</div>
+      </div>
+    </div>
+    <div class="langtoggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="uk" aria-pressed="false">UK</button>
+    </div>
+  </header>
+
+  <div class="rule"></div>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <div data-locale="en">
+    <h1>Privacy Policy</h1>
+    <p class="dateline">Last updated: October 23, 2026</p>
+
+    <section>
+      <p class="lead">TurntableRPM measures a turntable's rotation speed using your phone's own gyroscope. This page explains, plainly, what the app does and doesn't do with your data.</p>
+    </section>
+
+    <section>
+      <h2>The short version</h2>
+      <div class="card tint">
+        <p style="margin-bottom:0">TurntableRPM does not collect, store, or transmit any personal data to its developer. Everything you measure &mdash; turntable profiles, test results, speed readings &mdash; stays on your device. The app shows ads, and the ad network may collect a device advertising identifier; details below.</p>
+        <div class="pill-row">
+          <span class="pill">No account required</span>
+          <span class="pill">No data sent to the developer</span>
+          <span class="pill">No camera or microphone access</span>
+          <span class="pill">No location access</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What the app stores &mdash; on your device only</h2>
+      <p>TurntableRPM keeps a local database on your phone for:</p>
+      <ul>
+        <li><strong>Turntable profiles</strong> &mdash; names you give your turntables (e.g. &ldquo;Grundig PS2600&rdquo;).</li>
+        <li><strong>Test sessions</strong> &mdash; target speed, measured RPM readings over time, timestamps, and any name you give a saved test.</li>
+        <li><strong>App preferences</strong> &mdash; theme, language, auto-stop, in-tune sound, and gyroscope calibration settings.</li>
+      </ul>
+      <p>None of this ever leaves your device unless you explicitly export it (as a PDF or CSV file you choose to save or share) or clear it yourself. The developer has no access to it, has no server it is sent to, and cannot see it.</p>
+      <p>You can delete all of this at any time from <strong>Settings &rarr; Clear all history</strong>, or by uninstalling the app.</p>
+    </section>
+
+    <section>
+      <h2>Advertising</h2>
+      <p>TurntableRPM is free to use and supported by ads, served through the Appodeal mediation platform. To do this, the app requests the <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> permissions, and the <code>AD_ID</code> permission to use the Android Advertising ID.</p>
+      <p>Appodeal and the ad networks it mediates may collect and process device identifiers (such as the Android Advertising ID), general device information, and ad interaction data, to serve, measure, and limit the frequency of ads. This processing is governed by Appodeal's own privacy policy and by each mediated network's policy, not by TurntableRPM's developer directly.</p>
+      <div class="contact" style="margin-top:4px">
+        <span>Appodeal's privacy policy:</span>
+        <a href="https://www.appodeal.com/privacy-policy/" target="_blank" rel="noopener">appodeal.com/privacy-policy</a>
+      </div>
+      <p style="margin-top:14px">You can opt out of personalized advertising through your device's own ad settings (Android Settings &rarr; Privacy &rarr; Ads, or similar, depending on your device).</p>
+    </section>
+
+    <section>
+      <h2>Permissions used</h2>
+      <ul>
+        <li><strong>Internet &amp; network state</strong> &mdash; required to request and display ads.</li>
+        <li><strong>Advertising ID (AD_ID)</strong> &mdash; used by the ad mediation SDK, as described above.</li>
+      </ul>
+      <p>TurntableRPM does not request camera, microphone, location, contacts, storage, or any other sensitive permission. Speed measurement uses only the gyroscope and, where present, the gravity sensor &mdash; both read locally and never transmitted.</p>
+    </section>
+
+    <section>
+      <h2>Children's privacy</h2>
+      <p>TurntableRPM is not directed at children and does not knowingly collect any data from children under 13 (or the relevant minimum age in your region).</p>
+    </section>
+
+    <section>
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes, the updated version will be published at this same address with a new &ldquo;last updated&rdquo; date above.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions about this policy or the app can be sent to:</p>
+      <div class="contact">
+        <code id="email-en">r.maiboroda777@gmail.com</code>
+        <button class="copybtn" type="button" data-copy="r.maiboroda777@gmail.com">Copy</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== УКРАЇНСЬКА ===================== -->
+  <div data-locale="uk" hidden>
+    <h1>Політика приватності</h1>
+    <p class="dateline">Останнє оновлення: 23 жовтня 2026</p>
+
+    <section>
+      <p class="lead">TurntableRPM вимірює швидкість обертання програвача за допомогою гіроскопа вашого телефону. Ця сторінка простими словами пояснює, що застосунок робить із вашими даними, а чого &mdash; ні.</p>
+    </section>
+
+    <section>
+      <h2>Коротко</h2>
+      <div class="card tint">
+        <p style="margin-bottom:0">TurntableRPM не збирає, не зберігає і не передає розробнику жодних персональних даних. Усе, що ви вимірюєте &mdash; профілі програвачів, результати тестів, показання швидкості &mdash; залишається на вашому пристрої. Застосунок показує рекламу, і рекламна мережа може збирати рекламний ідентифікатор пристрою; деталі нижче.</p>
+        <div class="pill-row">
+          <span class="pill">Без облікового запису</span>
+          <span class="pill">Дані не надсилаються розробнику</span>
+          <span class="pill">Без доступу до камери чи мікрофона</span>
+          <span class="pill">Без доступу до геолокації</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Що зберігає застосунок &mdash; лише на вашому пристрої</h2>
+      <p>TurntableRPM веде локальну базу даних на телефоні для:</p>
+      <ul>
+        <li><strong>Профілів програвачів</strong> &mdash; назв, які ви даєте своїм програвачам (наприклад, &laquo;Grundig PS2600&raquo;).</li>
+        <li><strong>Тестів</strong> &mdash; цільової швидкості, виміряних показань об/хв у часі, часових міток і назви, яку ви дали збереженому тесту.</li>
+        <li><strong>Налаштувань застосунку</strong> &mdash; теми, мови, автостопу, звукового сигналу в темп і калібрування гіроскопа.</li>
+      </ul>
+      <p>Жодні з цих даних не залишають ваш пристрій, якщо ви самі явно не експортуєте їх (як PDF чи CSV файл, який вирішите зберегти чи надіслати) або не видалите. Розробник не має до них доступу, не має сервера, куди вони надсилаються, і не бачить їх.</p>
+      <p>Ви можете видалити всі ці дані будь-коли через <strong>Налаштування &rarr; Очистити всю історію</strong>, або видаливши застосунок.</p>
+    </section>
+
+    <section>
+      <h2>Реклама</h2>
+      <p>TurntableRPM безкоштовний і підтримується рекламою через платформу медіації Appodeal. Для цього застосунок запитує дозволи <code>INTERNET</code> і <code>ACCESS_NETWORK_STATE</code>, а також <code>AD_ID</code> для використання рекламного ідентифікатора Android.</p>
+      <p>Appodeal і рекламні мережі, якими він керує, можуть збирати й обробляти ідентифікатори пристрою (як-от рекламний ідентифікатор Android), загальну інформацію про пристрій і дані про взаємодію з рекламою &mdash; щоб показувати, вимірювати й обмежувати частоту реклами. Ця обробка регулюється власною політикою приватності Appodeal і політикою кожної підключеної мережі, а не безпосередньо розробником TurntableRPM.</p>
+      <div class="contact" style="margin-top:4px">
+        <span>Політика приватності Appodeal:</span>
+        <a href="https://www.appodeal.com/privacy-policy/" target="_blank" rel="noopener">appodeal.com/privacy-policy</a>
+      </div>
+      <p style="margin-top:14px">Ви можете відмовитися від персоналізованої реклами через налаштування реклами вашого пристрою (Налаштування Android &rarr; Конфіденційність &rarr; Реклама, або подібний розділ залежно від пристрою).</p>
+    </section>
+
+    <section>
+      <h2>Використані дозволи</h2>
+      <ul>
+        <li><strong>Інтернет і стан мережі</strong> &mdash; потрібні для запиту й показу реклами.</li>
+        <li><strong>Рекламний ідентифікатор (AD_ID)</strong> &mdash; використовується SDK медіації реклами, як описано вище.</li>
+      </ul>
+      <p>TurntableRPM не запитує доступ до камери, мікрофона, геолокації, контактів, сховища чи будь-яких інших чутливих дозволів. Вимірювання швидкості використовує лише гіроскоп і, де наявний, датчик гравітації &mdash; обидва зчитуються локально й ніколи не передаються.</p>
+    </section>
+
+    <section>
+      <h2>Приватність дітей</h2>
+      <p>TurntableRPM не орієнтований на дітей і свідомо не збирає жодних даних від дітей до 13 років (або відповідного мінімального віку у вашому регіоні).</p>
+    </section>
+
+    <section>
+      <h2>Зміни до цієї політики</h2>
+      <p>Якщо ця політика зміниться, оновлена версія буде опублікована за цією самою адресою з новою датою &laquo;останнє оновлення&raquo; вище.</p>
+    </section>
+
+    <section>
+      <h2>Контакти</h2>
+      <p>Питання щодо цієї політики або застосунку можна надсилати на:</p>
+      <div class="contact">
+        <code id="email-uk">r.maiboroda777@gmail.com</code>
+        <button class="copybtn" type="button" data-copy="r.maiboroda777@gmail.com">Копіювати</button>
+      </div>
+    </section>
+  </div>
+
+  <footer data-t="footer">TurntableRPM &middot; com.audiotools.turntablerpm</footer>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.langtoggle button');
+  var panels = document.querySelectorAll('[data-locale]');
+  var tagEl = document.querySelector('[data-t="tag"]');
+  var tags = { en: "Privacy Policy", uk: "Політика приватності" };
+
+  function setLang(lang){
+    panels.forEach(function(p){ p.hidden = p.getAttribute('data-locale') !== lang; });
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+    if (tagEl) tagEl.textContent = tags[lang] || tags.en;
+    try { localStorage.setItem('ttrpm_privacy_lang', lang); } catch(e){}
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  });
+
+  var saved = 'en';
+  try { saved = localStorage.getItem('ttrpm_privacy_lang') || 'en'; } catch(e){}
+  setLang(saved);
+
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy');
+      var done = function(){
+        var old = btn.textContent;
+        btn.textContent = (document.querySelector('[data-locale="uk"]:not([hidden])') ? 'Скопійовано' : 'Copied');
+        setTimeout(function(){ btn.textContent = old; }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function(){
+          var r = document.createRange(); r.selectNode(document.getElementById(btn.closest('.contact').querySelector('code').id));
+          var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
